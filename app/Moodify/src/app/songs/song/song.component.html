@@ -1,0 +1,29 @@
+<ion-content class="ion-padding">
+<div class="content">
+  <div>
+    <img src="/assets/song.png" />
+    <marquee behavior="alternate"><b>{{ name }}</b></marquee>
+    <br>
+  </div>
+  <div>
+    <div class="row">
+      <button (click)="onPrev()">
+        <ion-icon name="play-skip-back"></ion-icon>
+      </button>
+
+      <button *ngIf="!play" (click)="audio.play()">
+        <ion-icon name="play"></ion-icon>
+      </button>
+
+      <button *ngIf="play" (click)="audio.pause()">
+        <ion-icon name="pause"></ion-icon>
+      </button>
+
+      <button (click)="onNext()">
+        <ion-icon name="play-skip-forward"></ion-icon>
+      </button>
+    </div>
+    <audio [src]="path" controls #audio (play)="playSong()" (pause)="pauseSong()" (timeupdate)="onChangeDuration()"></audio>
+  </div>
+</div>
+</ion-content>

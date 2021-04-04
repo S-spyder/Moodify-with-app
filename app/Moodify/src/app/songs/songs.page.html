@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{ songs.mood || '' }} Songs</ion-title>
+
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ng-container *ngIf="songs">
+    <ion-slides [options]="slideOpts" #slides>
+      <ion-slide *ngFor="let s of songs.songs; let i = index">
+        <app-song [song]="s" (next)="next($event)" (prev)="prev($event)" [autoplay]=" i == 0 ? true : false"></app-song>
+      </ion-slide>
+    </ion-slides>
+  </ng-container>
+</ion-content>

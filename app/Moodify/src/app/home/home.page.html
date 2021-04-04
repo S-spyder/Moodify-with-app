@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      Moodify
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  
+  <h1 class="logo ion-text-center">M😊😞Dify</h1>
+  <p class="ion-text-center">Upload an image, and we play songs according to your mood!</p>
+
+  <img [src]="url || '/assets/upload-pic.png'" alt="" class="upload" (click)="file.click()">
+
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <input type="file" name="file" accept="image/*" style="display: none;" (change)="onFileChanged($event)" ngModel required #file>
+    <br>
+    <ion-button type="submit" expand="full" [disabled]="!form.valid">Search Playlist</ion-button>
+  </form>
+  
+</ion-content>

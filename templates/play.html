@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ mood }} songs | Moodify</title>
+</head>
+<body>
+    <div id="songs">
+        {% for s in songs %}
+            <audio src="/static/{{s}}" controls></audio>
+        {% endfor %}
+    </div>
+</body>
+</html>
